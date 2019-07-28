@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="707.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.202" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.easydebug.osexplorer.controller.MainController">
+    <children>
+        <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <MenuBar prefHeight="30.0">
+                    <menus>
+                        <Menu mnemonicParsing="false" text="文件">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#createConnect" text="连接" />
+                                <MenuItem mnemonicParsing="false" text="退出" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="帮助">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="关于" />
+                            </items>
+                        </Menu>
+                    </menus>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </MenuBar>
+                <HBox alignment="CENTER_LEFT">
+                    <children>
+                          <ToolBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" HBox.hgrow="ALWAYS">
+                              <items>
+                                  <Button mnemonicParsing="false" onAction="#createConnect" prefWidth="60.0" text="连接" />
+                                  <Button mnemonicParsing="false" onAction="#uploadFile" prefWidth="60.0" text="上传" />
+                              </items>
+                          </ToolBar>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" prefHeight="30.0" VBox.vgrow="NEVER">
+                    <children>
+                        <Label fx:id="pathTextLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+                        </Label>
+                        <Button fx:id="upPathButton" mnemonicParsing="false" onAction="#upWard" prefWidth="60.0" text="↑向上">
+                            <HBox.margin>
+                                <Insets right="5.0" />
+                            </HBox.margin>
+                        </Button>
+
+                    </children>
+                </HBox>
+                <TableView fx:id="fileTableView" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="fileNameTableColumn" prefWidth="600.0" text="名称" />
+                        <TableColumn fx:id="lastModifiedTableColumn" prefWidth="150.0" text="修改日期" />
+                        <TableColumn fx:id="storageClassTableColumn" prefWidth="100.0" text="存储类型" />
+                        <TableColumn fx:id="sizeTableColumn" prefWidth="100.0" text="大小" />
+                    </columns>
+                </TableView>
+                <HBox alignment="CENTER_LEFT" prefHeight="20.0" VBox.vgrow="NEVER">
+                    <children>
+                        <Label fx:id="statusLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="" HBox.hgrow="ALWAYS" />
+                        <ProgressBar fx:id="progressBar" prefHeight="20.0" prefWidth="150.0" progress="0.0" HBox.hgrow="NEVER" />
+                    </children>
+                </HBox>
+                <!--            <SplitPane dividerPositions="0.7" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" VBox.vgrow="ALWAYS">-->
+                <!--              <items>-->
+                <!--                  <TableView fx:id="fileTableView" prefHeight="200.0" prefWidth="200.0">-->
+                <!--                    <columns>-->
+                <!--                      <TableColumn prefWidth="700.0" text="名称" />-->
+                <!--                      <TableColumn prefWidth="100.0" text="修改日期" />-->
+                <!--                        <TableColumn prefWidth="100.0" text="类型" />-->
+                <!--                        <TableColumn prefWidth="100.0" text="大小" />-->
+                <!--                    </columns>-->
+                <!--                  </TableView>-->
+                <!--                  <TableView fx:id="statusTableView" prefHeight="200.0" prefWidth="200.0">-->
+                <!--                    <columns>-->
+                <!--                      <TableColumn prefWidth="600.0" text="任务" />-->
+                <!--                      <TableColumn prefWidth="100.0" text="文件大小" />-->
+                <!--                        <TableColumn prefWidth="100.0" text="进度" />-->
+                <!--                        <TableColumn prefWidth="100.0" text="速度" />-->
+                <!--                        <TableColumn prefWidth="100.0" text="状态" />-->
+                <!--                    </columns>-->
+                <!--                  </TableView>-->
+                <!--              </items>-->
+                <!--            </SplitPane>-->
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
